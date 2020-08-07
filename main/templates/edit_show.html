@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <h3><a href="/shows">Go back</a></h3>
+      
+    <h1> Edit Show # {{ this_show.id }} </h1>
+
+    {% if messages %}
+    <ul style="color:red" class="messages">    
+        {% for message in messages %}    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+
+
+    <form class="col-4" action="/shows/{{ this_show.id }}/update" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" class="form-control" name="titleLabel" value="{{ this_show.title }}">
+        </div>
+        <div class="form-group">
+            <label for="networkLabel">Network</label>
+            <input type="text" class="form-control" name="networkLabel" value="{{ this_show.network }}">
+          </div>
+          <div class="form-group">
+            <label for="releaseDateLabel">Release Date</label>
+            <input type="date" class="form-control" name="releaseDateLabel" value="{{ this_show.release_date }}">
+          </div>
+          
+        <div class="form-group">
+            <label for="descriptionLabel">Description</label>
+            <textarea class="form-control" name="descriptionLabel" rows="3" value="{{ this_show.description }}">{{ this_show.description}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form> 
+
+
+
+
+
+
+    <!-- <form class="col-4" action="/shows/{{ this_show.id }}/update" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="titleEditingLabel">Title</label>
+          <input type="text" class="form-control" name="titleEditingLabel" value="{{ this_show.title }}">
+        </div>
+        <div class="form-group">
+            <label for="networkEditingTable">Network</label>
+            <input type="text" class="form-control" name="networkEditingLabel" value={{this_show.network}}>
+        </div>
+        <div class="form-group">
+            <label for="networkEditingTable">Network</label>
+            <input type="text" class="form-control" name="networkEditingLabel" value={{this_show.network}}>
+          </div>
+          <div class="form-group">
+            <label for="networkEditingTable">Network</label>
+            <input type="text" class="form-control" name="networkEditingLabel" value={{this_show.network}}>
+          </div>
+          
+
+
+          <div class="form-group">
+            <label for="releaseDateEditingLabel">Release Date</label>
+            <input type="date" class="form-control" name="releaseDateEditingLabel" value="{{ this.show.release_date }}>
+          </div>
+
+          <div class="form-group">
+            <label for="descriptionEditingLabel">Description</label>
+            <textarea class="form-control" name="descriptionEditingLabel" rows="3" >{{ this_show.description }}</textarea>
+          </div>
+
+        <button type="submit" class="btn btn-primary">Create</button>
+      </form> -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
