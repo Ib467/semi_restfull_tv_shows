@@ -53,9 +53,10 @@ pre { font-family: "Varela Round"; font-size: 13px; font-style: normal; font-var
   
       <!-- shows/<int:id2>/edit -->
       
-      <a href="/shows/{{ this_show.id }}/edit">Edit</a>
-      <button class="button is-primary">Primary</button>
-      <a href="/shows/{{ this_show.id  }}/destroy">Delete</a>
+      
+      <button class="button is-primary"><a href="/shows/{{ this_show.id }}/edit">Edit</a></button>
+      <button class="button is-primary"><a href="/shows/{{ this_show.id  }}/destroy">Delete</a></button>
+      
   
   
 
